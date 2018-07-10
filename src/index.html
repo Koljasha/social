@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta property="og:title" content="Social: Twitter and Vk" />
+    <meta property="og:image" content="/static/og.jpg" />
+
+    <link rel="shortcut icon" type="image/png" href="/static/favicon.png" />
+    <title>Social: Twitter and Vk</title>
+</head>
+
+<body>
+    <div class="container" id="app">
+        <div class="list-group-wrapper">
+            <ul class="list-group" ref="listGroup" @scroll="onScroll">
+                <div class="list-group-item" v-for="item in items">
+                    <div class="row mb-2 pr-3 link" @click="onClick(item.link)">
+                        <div class="col-1">
+                            <img class="rounded-circle logo" :src=item.user_image>
+                        </div>
+                        <div class="col-1"></div>
+                        <div class="col">
+                            <div class="row name">
+                                {% raw %} {{ item.user_name }} {% endraw %}
+                            </div>
+                            <div class="row time">
+                                {% raw %} {{ item.string_time }} {% endraw %}
+                            </div>
+                        </div>
+                        <div class="col-1 pl-2">
+                            <img class="rounded-circle logo" :src=item.type>
+                        </div>
+                    </div>
+                    <div class="row mx-2" v-if="!isEmbedded(item.embedded)">
+                        <div class="text" v-html=item.text></div>
+                    </div>
+                    <div class="img_block my-3" v-if="!isEmbedded(item.embedded)">
+                        <img class="img" :src=item.image>
+                    </div>
+                    <div class="row justify-content-center" v-if="isEmbedded(item.embedded)">
+                        <div :id=item.id v-html=item.embedded hidden="true"></div>
+                        <div class="loader"></div>
+                    </div>
+                </div>
+            </ul>
+            <div class="loader mainloader" v-if="mainloader"></div>
+            <div class="line_loader line_loader_" v-if="mainloader"></div>
+            <div class="line_loader line_loader__" v-if="mainloader"></div>
+            <transition name='button'>
+                <button type="button" class="btn btn-secondary button toTop" v-if="buttonShow" @click="toTop">Наверх</button>
+            </transition>
+            <button type="button" class="btn btn-secondary button reloadPage" @click="reloadPage">Обновить</button>
+            <button type="button" class="btn btn-secondary button exitPage" @click="exitPage">Выйти</button>
+
+            <button type="button" class="btn btn-secondary menu" @click="menuShow = !menuShow">Меню</button>
+            <div v-if="menuShow">
+                <button type="button" class="btn btn-secondary menu_exitPage" @click="exitPage">Выйти</button>
+                <button type="button" class="btn btn-secondary menu_reloadPage" @click="reloadPage">Обновить</button>
+                <!-- <button type="button" class="btn btn-secondary menu_toTop" @click="toTop">Наверх</button> -->
+            </div>
+        </div>
+    </div>
+    <script src="/static/widgets.jss"></script>
+
+</body>
+
+</html>
