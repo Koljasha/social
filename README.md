@@ -19,12 +19,6 @@ pip install -r requirements.txt
 npm i
 ./build.sh
 ```
-
-* ветка **deploy** для развертывания на сервере
-```
-git clone --branch deploy https://github.com/Koljasha/social.git
-```
-
 * `social.conf` для *Supervisor*
 ```
 [program:social]
