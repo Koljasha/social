@@ -1,11 +1,8 @@
-.vscode/
 venv/
+node_modules/
 __pycache__/
 wall/__pycache__/
 wall/config.py
-node_modules/
-static/
-templates/
 log.json
 vk.json
 twitter.json
