@@ -8,6 +8,10 @@ def re_stars(str_):
 def re_br(str_):
     return re.sub(r"\n", "<br>", str_)
 
+# преобразуем vk.cc в ссылку
+def re_vkcc(str_):
+    return re.sub(r"vk.cc", "https://vk.cc", str_)
+
 # преобразуем ссылки
 def re_http(str_):
     # выбор http httpd
@@ -29,4 +33,4 @@ def re_http(str_):
 
 # общая на регулярки
 def re_all(str_):
-    return re_http(re_br(re_stars(str_)))
+    return re_http(re_vkcc(re_br(re_stars(str_))))
