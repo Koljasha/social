@@ -6,7 +6,7 @@ def re_stars(str_):
 
 # преобразуем \n в тег
 def re_br(str_):
-    return re.sub(r"\n", "<br>", str_)
+    return re.sub(r"\n", " <br>", str_)
 
 # преобразуем vk.cc в ссылку
 def re_vkcc(str_):
