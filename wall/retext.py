@@ -33,4 +33,5 @@ def re_http(str_):
 
 # общая на регулярки
 def re_all(str_):
-    return re_http(re_vkcc(re_br(re_stars(str_))))
+    # return re_http(re_vkcc(re_br(re_stars(str_))))
+    return re_http(re_br(re_stars(str_)))
