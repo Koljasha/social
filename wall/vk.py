@@ -8,7 +8,7 @@ def vk(time_now, time_old):
     # запрос
     url = 'https://api.vk.com/method/newsfeed.get'
     params = {
-        "v" : "5.80",
+        "v" : "5.131",
         "access_token" : access_token_VK,
         "filters" : "post",
         "end_time" : time_now,
