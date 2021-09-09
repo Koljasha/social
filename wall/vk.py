@@ -97,13 +97,17 @@ def vk(time_now, time_old):
                 image = return_image(img_sizes)
             # тип - 'video'
             elif r_.get('type') == "video":
-                i_video = r_.get('video')
-                if i_video.get('photo_800') is not None:
-                    image = i_video.get('photo_800')
-                elif i_video.get('photo_640') is not None:
-                    image = i_video.get('photo_640')
-                else:
-                    image = i_video.get('photo_320')
+                # ver api <=100
+                # i_video = r_.get('video')
+                # if i_video.get('photo_800') is not None:
+                    # image = i_video.get('photo_800')
+                # elif i_video.get('photo_640') is not None:
+                    # image = i_video.get('photo_640')
+                # else:
+                    # image = i_video.get('photo_320')
+
+                # ver api 101=>
+                image = r_.get('video').get('image')[-1].get('url')
             # тип - 'link'
             elif r_.get('type') == "link":
                 if r_.get('link').get('photo') is not None:
