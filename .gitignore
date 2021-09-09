@@ -6,3 +6,4 @@ wall/config.py
 log.json
 vk.json
 twitter.json
+git_push.sh
