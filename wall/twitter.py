@@ -71,6 +71,8 @@ def twitter(max_id=None, count=5):
         # если нет картинки, идем через api встраиваивания
         embedded = None
         if image is None:
+            # 2022-03-10 Twitter blocked - embedded not working
+            continue
             text = None
             embedded = ' '
         else:
